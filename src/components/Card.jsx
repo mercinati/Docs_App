@@ -2,12 +2,12 @@ import React from 'react'
 import { FaFileAlt } from "react-icons/fa";   //file icon
 import { MdOutlineFileDownload } from "react-icons/md";   //download icon
 import { IoClose } from "react-icons/io5";   //close icon  
-// import { motion, scale } from "motion/react"
+import { motion, scale } from "motion/react"
 
-const Card = ({data}) => {
+const Card = ({data,reference}) => {
   return (
     
-    <div className='relative flex-shrink-0 w-55 h-62 p-5 rounded-[30px] bg-zinc-900/90 text-white overflow-hidden shadow-md shadow-black/50'>
+    <motion.div drag dragConstraints={reference} whileDrag={{scale:1.1}} className='relative flex-shrink-0 w-55 h-62 p-5 rounded-[30px] bg-zinc-900/90 text-white overflow-hidden shadow-md shadow-black/50'>
         <FaFileAlt />
         <p className='text-sm leading-tight mt-5 font-semibold '>{data.desc}</p>
         <div className='footer absolute left-0 w-full bottom-0  '>
@@ -23,7 +23,7 @@ const Card = ({data}) => {
             </div>
             ) }
         </div>
-    </div>
+    </motion.div>
   
   )
 }
