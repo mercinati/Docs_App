@@ -1,5 +1,6 @@
 import React, { useRef } from 'react'
 import Card from './Card'
+import Navigation from './Navigation';
 
 const Foreground = () => {
 
@@ -27,11 +28,16 @@ const Foreground = () => {
   ];
 
   return (
-    <div ref={ref} className='fixed top-0 left-0 z-[3] w-full h-full p-3 flex gap-4 flex-wrap '>
-        {data.map((item, index)=>(
-          <Card data={item} reference={ref}/>
-        ))}
-    </div>
+    <>
+      <div className=' w-full h-[10%] '>
+        <Navigation />
+      </div>
+      <div ref={ref} className='fixed relative top-0 left-0 z-[3] w-full h-[90%] p-2 flex gap-4 flex-wrap '>
+          {data.map((item, index)=>(
+            <Card data={item} reference={ref}/>
+          ))}
+      </div>
+    </>
   )
 }
 
